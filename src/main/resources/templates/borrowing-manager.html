@@ -112,7 +112,7 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 	<script type="text/javascript" charset="utf8"
-		src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+			src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 	<script type="text/javascript">
 
 	</script>
@@ -120,47 +120,49 @@
 </head>
 
 <body>
-	<div>
+<div>
 
-		<ul>
-			<li><a href="/book-view">Books</a></li>
-			<li><a href="/member-view">Members</a></li>
-			<li><a class="active" href="/borrowing-view">Borrowed</a></li>
-			<li style="float:right"><a href="#about">About</a></li>
-		</ul>
+	<ul>
+		<li><a href="/book-view">Books</a></li>
+		<li><a href="/member-view">Members</a></li>
+		<li><a class="active" href="/borrowing-view">Borrowed</a></li>
+		<li style="float:right"><a href="#about">About</a></li>
+	</ul>
+</div>
+<div class="wrapper">
+	<div class="error"></div>
+	<div class="success"></div>
+	<!-- Sidebar Holder -->
+
+	<!-- Page Content Holder -->
+	<div class="container">
+		<button type="button" class="add-new">
+			<i class="fa fa-plus"></i> Add New
+		</button>
+
+		<table id="appData" class="display">
+			<thead>
+			<thead>
+			<tr>
+				<th>ID</th>
+				<th>Book ID</th>
+				<th>Book Name</th>
+				<th>Member ID</th>
+				<th>Member Name</th>
+				<th>Borrow Date</th>
+				<th>Return Date</th>
+				<th colspan="3">Actions</th>
+			</tr>
+			</thead>
+			<tfoot>
+			<tr>
+
+			</tr>
+			</tfoot>
+			</tbody>
+		</table>
 	</div>
-	<div class="wrapper">
-		<div class="error"></div>
-		<div class="success"></div>
-		<!-- Sidebar Holder -->
-
-		<!-- Page Content Holder -->
-		<div class="container">
-			<button type="button" class="add-new">
-				<i class="fa fa-plus"></i> Add New
-			</button>
-
-			<table id="appData" class="display">
-				<thead>
-					<thead>
-						<tr>
-							<th>ID</th>
-							<th>Book ID</th>
-							<th>Book Name</th>
-							<th>Member ID</th>
-							<th>Member Name</th>
-							<th>Borrow Date</th>
-							<th>Return Date</th>
-							<th colspan="3">Actions</th>
-						</tr>
-					</thead>
-				<tfoot>
-
-				</tfoot>
-				</tbody>
-			</table>
-		</div>
-	</div>
+</div>
 
 </body>
 <script src="js/source/borrowing-table.js"></script>

@@ -14,6 +14,19 @@ $(document).ready(function() {
 			{ "data": "member.name" },
 			{ "data": "borrowDate" },
 			{ "data": "returnDate" },
+
+			{
+				"data": "",
+				"defaultContent": "<a><i> &#xE254;</i></a>"
+			},
+			{
+				"data": "",
+				"defaultContent": "<a><i> &#xE03B; </i> </a>"
+			},
+			{
+				"data": "",
+				"defaultContent": "<a><i> &#xE872; </i> </a>"
+			}
 		],
 		columnDefs: [
 			{ className: "material-icons edit", "targets": [7] },
@@ -67,7 +80,7 @@ $(document).ready(function() {
 		var input = $(this).parents("tr").find('input[type="text"]');
 		var count = 0;
 		var id = $(this).parents("tr").find("td:first-child").text();
-var returnOrnot = !($(this).prop('checked')==true);
+		var returnOrnot = !($(this).prop('checked')==true);
 
 		input.each(function() {
 			if (!$(this).val()) {
@@ -108,7 +121,7 @@ var returnOrnot = !($(this).prop('checked')==true);
 			if (id == "") {
 				obj['bookId'] = bookId;
 				obj['memberId'] = memId;
-				
+
 
 				$.ajax({
 					url: serviceUrl + "borrowings",
@@ -128,7 +141,7 @@ var returnOrnot = !($(this).prop('checked')==true);
 
 						$(".add-new").removeAttr("disabled");
 						$('.success').message('Created Book Success: ' + result.id + ' | ');
-window.location.reload();
+						window.location.reload();
 
 
 					},
@@ -164,7 +177,7 @@ window.location.reload();
 
 						$(".add-new").removeAttr("disabled");
 						$('.success').message('Updating App Success: ' + name + ' | ');
-window.location.reload();
+						window.location.reload();
 
 
 					},
