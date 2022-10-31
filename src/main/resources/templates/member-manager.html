@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>UOM - Library System</title>
+	<title>Jaffna- Library System</title>
 	<script>
 		var serviceUrl = "http://localhost:8080/";
 
@@ -24,7 +24,73 @@
 		#teams_input {
 			width: 425px;
 		}
+		body {
+			background-image: url("img/1.jpg");
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: 100% 100%;
+		}
+		.display{
+			font-size: xx-larger;
+		}
+		button {
+			margin: 20px;
+		}
+		.custom-btn {
+			width: 130px;
+			height: 40px;
+			color: #fff;
+			border-radius: 5px;
+			padding: 10px 25px;
+			font-family: 'Lato', sans-serif;
+			font-weight: 500;
+			background: #ffffff;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			position: relative;
+			display: inline-block;
+			box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+			7px 7px 20px 0px rgba(0,0,0,.1),
+			4px 4px 5px 0px rgba(0,0,0,.1);
+			outline: none;
+		}
+		/* 16 */
+		.btn-16 {
+			border: none;
+			color: #000;
+		}
+		.btn-16:after {
+			position: absolute;
+			content: "";
+			width: 0;
+			height: 100%;
+			top: 0;
+			left: 0;
+			direction: rtl;
+			z-index: -1;
+			box-shadow:
+					-7px -7px 20px 0px #fff9,
+					-4px -4px 5px 0px #fff9,
+					7px 7px 20px 0px #0002,
+					4px 4px 5px 0px #0001;
+			transition: all 0.3s ease;
+		}
+		.btn-16:hover {
+			color: #000;
+		}
+		.btn-16:hover:after {
+			left: auto;
+			right: 0;
+			width: 100%;
+		}
+		.btn-16:active {
+			top: 2px;
+		}
+		.container{
+			background-color: rgba(236, 152, 124, 0.2);
+			margin-top: 3%;
 
+		}
 		.add {
 			color: #27C46B;
 			display: none;
@@ -102,7 +168,82 @@
 		}
 
 		.active {
-			background-color: #04AA6D;
+			background-color: rgba(233, 150, 122,0.3);
+		}
+		/* Appearance */
+		.links {
+			background-color: #000000;
+			border-bottom: 1px solid #0003;
+			box-shadow: 0 0 32px #0003;
+			font-size: 1.2em;
+			font-weight: 350;
+			color:#ffffff;
+
+		}
+		.links > a {
+			color: #9ab;
+			padding: 1em 1.5em 1em 1.5em;
+
+			text-align: center;
+			text-decoration: none;
+		}
+		.links > a:hover {
+			background: #ffffff;
+			color: #adf;
+		}
+		.links > .line {
+			background: #68a;
+			height: 1px;
+			pointer-events: none;
+		}
+
+		/* The Magic */
+		#header {
+			position: relative;
+			top: 0;
+			left: 0;
+			right: 0;
+		}
+		.links {
+			display: flex;
+			justify-content: flex-end;
+
+			position: relative;
+		}
+		.links > .line {
+			opacity: 0;
+			transition: all .5s;
+			position: absolute;
+			bottom: 0;
+			left: var(--left, calc(100% / var(--items) * (var(--index) - 1)));
+			width: var(--width, calc(100% / var(--items)));
+			--index: 0;
+		}
+		.links > a:hover ~ .line {
+			opacity: 1;
+		}
+
+		.links > a:nth-of-type(1):hover ~ .line { --index: 1; }
+		.links > a:nth-of-type(2):hover ~ .line { --index: 2; }
+		.links > a:nth-of-type(3):hover ~ .line { --index: 3; }
+		.links > a:nth-of-type(4):hover ~ .line { --index: 4; }
+		.links > a:nth-of-type(5):hover ~ .line { --index: 5; }
+		.links > a:nth-of-type(6):hover ~ .line { --index: 6; }
+		.links > a:nth-of-type(7):hover ~ .line { --index: 7; }
+		.links > a:nth-of-type(8):hover ~ .line { --index: 8; }
+		.links > a:nth-of-type(9):hover ~ .line { --index: 9; }
+		.links > a:nth-of-type(10):hover ~ .line { --index: 10; }
+		.links > a:last-of-type:hover ~ .line { --index: var(--items); }
+
+		#appData_filter > label > input[type=search]{
+			background-color: #ffffff;
+			padding:5px;
+			margin-bottom: 20px;
+		}
+		#appData_wrapper{
+			background-color: rgba(233, 150, 122,0.7);
+			padding:15px;
+		}
 		}
 	</style>
 	<!-- jQuery CDN -->
@@ -120,15 +261,16 @@
 </head>
 
 <body>
-	<div>
+<header id="header">
+	<nav class="links" style="--items: 5;">
+		<a href="/book-view">Books</a>
+		<a class= "active" href="/member-view">Members</a>
+		<a href="/borrowing-view">Borrowed</a>
+		<a href="/login">Log Out </a>
 
-		<ul>
-			<li><a href="/book-view">Books</a></li>
-			<li><a class="active" href="/member-view">Members</a></li>
-			<li><a href="/borrowing-view">Borrowed</a></li>
-			<li style="float:right"><a href="#about">About</a></li>
-		</ul>
-	</div>
+		<span class="line"></span>
+	</nav>
+</header>
 	<div class="wrapper">
 		<div class="error"></div>
 		<div class="success"></div>
@@ -136,10 +278,8 @@
 
 		<!-- Page Content Holder -->
 		<div class="container">
-			<button type="button" class="add-new">
-				<i class="fa fa-plus"></i> Add New
-			</button>
 
+			<button class="custom-btn btn-16 add-new">Add New</button>
 			<table id="appData" class="display">
 				<thead>
 					<thead>
