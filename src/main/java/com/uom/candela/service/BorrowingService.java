@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.PreRemove;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -75,7 +76,6 @@ public class BorrowingService {
 	}
 
 	public void deleteBorrowingById(String borrowId) {
-
 		borrowingRepository.deleteById(borrowId);
 
 	}

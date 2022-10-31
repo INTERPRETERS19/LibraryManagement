@@ -27,14 +27,6 @@ public class LibrarianService {
 	public void addLibrarian(Librarian librarian) {
 		librarianRepository.save(librarian);
 	}
-
-	public void deleteLibrarian(Librarian librarian) {
-		librarianRepository.delete(librarian);
-	}	
-	
-	public void updateLibrarian(Librarian librarian) {
-		librarianRepository.save(librarian);
-	}
 	
 	public boolean findLibrarian(String username, String password) {
 		
