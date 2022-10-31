@@ -1,4 +1,4 @@
---UOM LIBRARY SYSTEM--
+--JAFFNA LIBRARY MANAGER--
 
 This application contains 4 models
  *Book 
